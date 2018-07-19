@@ -16,12 +16,12 @@ class BMIDatabaseHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db){
-        db.execSQL("CREATE TABLE "+TABLE_NAME+" ("
+        db.execSQL("CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" ("
             + "_id INTEGER PRIMARY KEY AUTOINCREMENT,"
             + "NAME TEXT,"
             + "PASSWORD TEXT,"
             + "HEALTH_CARD_NUMB TEXT,"
-            + "DATE INTEGER);");
+            + "DATE LONG);");
 
         Date today = new Date();
         ContentValues personValues = new ContentValues();
@@ -34,6 +34,7 @@ class BMIDatabaseHelper extends SQLiteOpenHelper{
 
 
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){

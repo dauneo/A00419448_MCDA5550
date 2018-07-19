@@ -19,15 +19,14 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Name"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/birthDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Date of Birth"
+            android:hint="Date of Birth(DD-MM-YYYY)"
             android:inputType="date" />
 
         <EditText
@@ -50,7 +49,22 @@
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit" />
+            android:onClick="onClickEnter"
+            android:text="Calculate BMI" />
+
+        <Button
+            android:id="@+id/adduser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="insertToTable"
+            android:text="Add User" />
+
+        <Button
+            android:id="@+id/viewusers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickview"
+            android:text="View Users" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
