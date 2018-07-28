@@ -1,28 +1,40 @@
 package com.example.daune.bmiapplication;
 
+import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
 
-public class PersonActivity extends FragmentActivity {
+public class NewPersonActivity extends Activity implements View.OnClickListener {
+
+    EditText bdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_person);
+        setContentView(R.layout.activity_new_person);
 
+        bdate = (EditText) findViewById(R.id.birthDate);
+        bdate.setOnClickListener(this);
+
+
+
+/*
         BMIDatabaseHelper helper = new BMIDatabaseHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
 
@@ -31,7 +43,7 @@ public class PersonActivity extends FragmentActivity {
 
 
 
-        Cursor cursor = db.query(helper.TABLE_NAME,new
+        Cursor cursor = db.query(BMIDatabaseHelper.TABLE_NAME,new
                 String[]{"NAME", "EMAIL", "PASSWORD","DATE","HEALTH_CARD_NUMB"},
                 "EMAIL = ?",args,null,null,null);
 
@@ -66,31 +78,52 @@ public class PersonActivity extends FragmentActivity {
 
         cursor.close();
         db.close();
+*/
+    }
+
+    @Override
+    public void onClick(final View v) {
+        // To Hide KeyBoard
+        InputMethodManager i = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        i.hideSoftInputFromWindow(((EditText)v).getWindowToken(), 0);
+
+
+        Calendar c = Calendar.getInstance();
+        final String seperator = "-";
+        int year = c.get(Calendar.YEAR);
+        final int month = c.get(Calendar.MONTH);
+        int day =  c.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener()
+        {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                Calendar cal = Calendar.getInstance();
+                cal.set(Calendar.YEAR, year);
+                cal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                cal.set(Calendar.MONTH, monthOfYear);
+
+                SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+
+                //String format = new SimpleDateFormat("dd-MM-yyyy").format(cal.getTime());
+                ((EditText)v).setText(df.format(cal.getTime()));
+
+            }
+        };
+
+        DatePickerDialog d = new DatePickerDialog(this,listener,year , month, day);
+        d.show();
 
     }
 
+
     public void onClickEnter(View view) {
         Intent intent = new Intent(this, EnterBMIActivity.class);
-
-        EditText name =  findViewById(R.id.nameTxt);
-        String nameVal = name.getText().toString();
-
-        EditText dob =  findViewById(R.id.emailText);
-        String dobVal = dob.getText().toString();
-
-        intent.putExtra("name",nameVal);
-        intent.putExtra("dob",dobVal);
-
         startActivity(intent);
     }
 
     public void onClickview(View view) {
         Intent intent = new Intent(this, BMIListActivity.class);
-        startActivity(intent);
-    }
-
-    public void onClickNewUser(View view) {
-        Intent intent = new Intent(this, NewPersonActivity.class);
         startActivity(intent);
     }
 

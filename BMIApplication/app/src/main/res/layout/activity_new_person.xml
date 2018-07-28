@@ -57,26 +57,15 @@
             android:hint="Password"
             android:inputType="textPassword" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClickEnter"
-            android:text="Calculate BMI" />
 
         <Button
             android:id="@+id/adduser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onClickNewUser"
-            android:text="New User" />
+            android:onClick="insertToTable"
+            android:text="Add User" />
 
-        <Button
-            android:id="@+id/viewusers"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClickview"
-            android:text="View Users" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -20,7 +20,7 @@ public class BMIResult {
     //public Date getDob(){return dob;}
     //public void setDob(Date dob){this.dob = dob;}
 
-    public double getResult(){return weight/height*height;}
+    public double getResult(){return weight/(height*height);}
 
     public String toString(){
         return String.valueOf(getResult());

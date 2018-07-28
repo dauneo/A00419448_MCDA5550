@@ -6,4 +6,100 @@
     android:layout_height="match_parent"
     tools:context=".BMIListActivity">
 
+    <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="*" >
+
+            <TableRow
+                android:id="@+id/tablerow_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent" >
+
+                <TextView
+                    android:id="@+id/tview1"
+                    android:text="NAME"
+                    android:background="@android:color/holo_blue_dark"
+                    android:textColor="#EEEEEE"/>
+
+                <TextView
+                    android:id="@+id/tview2"
+                    android:text="HEIGHT"
+                    android:background="@android:color/holo_blue_dark"
+                    android:textColor="#EEEEEE"/>/>
+
+                <TextView
+                    android:id="@+id/tview3"
+                    android:text="WEIGHT"
+                    android:background="@android:color/holo_blue_dark"
+                    android:textColor="#EEEEEE"/>/>
+
+                <TextView
+                    android:id="@+id/tview4"
+                    android:text="BMI"
+                    android:background="@android:color/holo_blue_dark"
+                    android:textColor="#EEEEEE"/>/>
+
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:paddingRight="20dp"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="16dp" />
+
+                <TextView
+                    android:id="@+id/textViewHeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:paddingRight="20dp"
+                    tools:layout_editor_absoluteX="85dp"
+                    tools:layout_editor_absoluteY="16dp" />
+
+                <TextView
+                    android:id="@+id/textViewWeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:paddingRight="20dp"
+                    tools:layout_editor_absoluteX="151dp"
+                    tools:layout_editor_absoluteY="16dp" />
+
+                <TextView
+                    android:id="@+id/textViewBmi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:paddingRight="20dp"
+                    tools:layout_editor_absoluteX="221dp"
+                    tools:layout_editor_absoluteY="16dp" />
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
