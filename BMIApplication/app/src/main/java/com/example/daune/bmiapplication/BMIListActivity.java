@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,10 +31,10 @@ public class BMIListActivity extends ListActivity {
 
 
 
-    static final String[] PROJECTION = new String[] {"NAME","HEIGHT","WEIGHT","BMI"};
+    //static final String[] PROJECTION = new String[] {"NAME","HEIGHT","WEIGHT","BMI"};
 
     // This is the select criteria
-    static final String SELECTION = "((NAME NOTNULL) AND (NAME != '' ))";
+    //static final String SELECTION = "((NAME NOTNULL) AND (NAME != '' ))";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +74,7 @@ public class BMIListActivity extends ListActivity {
 
 
     public void onListItemClick(ListView listView, View itemView, int position, long id){
-        System.out.println("Clicked on " + results[position].toString());
+        //System.out.println("Clicked on " + results[position].toString());
 
     }
 

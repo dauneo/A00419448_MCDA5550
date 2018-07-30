@@ -65,6 +65,13 @@
             android:onClick="insertToTable"
             android:text="Add User" />
 
+        <Button
+            android:id="@+id/backButt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickBack"
+            android:text="Back" />
+
 
     </LinearLayout>
 

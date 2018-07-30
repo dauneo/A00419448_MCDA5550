@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.Locale;
 
 
-public class PersonActivity extends FragmentActivity {
+public class PersonActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,8 @@ public class PersonActivity extends FragmentActivity {
 
         String value = getIntent().getStringExtra("email");
         String[] args = { value };
+
+        System.out.println("email: " + value);
 
 
 

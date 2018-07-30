@@ -19,47 +19,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:stretchColumns="*" >
 
-            <TableRow
-                android:id="@+id/tablerow_header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent" >
-
-                <TextView
-                    android:id="@+id/tview1"
-                    android:text="NAME"
-                    android:background="@android:color/holo_blue_dark"
-                    android:textColor="#EEEEEE"/>
-
-                <TextView
-                    android:id="@+id/tview2"
-                    android:text="HEIGHT"
-                    android:background="@android:color/holo_blue_dark"
-                    android:textColor="#EEEEEE"/>/>
-
-                <TextView
-                    android:id="@+id/tview3"
-                    android:text="WEIGHT"
-                    android:background="@android:color/holo_blue_dark"
-                    android:textColor="#EEEEEE"/>/>
-
-                <TextView
-                    android:id="@+id/tview4"
-                    android:text="BMI"
-                    android:background="@android:color/holo_blue_dark"
-                    android:textColor="#EEEEEE"/>/>
-
-
-            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
 
                 <TextView
                     android:id="@+id/textViewName"

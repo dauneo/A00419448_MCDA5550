@@ -9,10 +9,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -20,9 +23,10 @@ import java.util.Date;
 import java.util.Locale;
 
 
-public class NewPersonActivity extends Activity implements View.OnClickListener {
+public class NewPersonActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText bdate;
+    String emailVal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,6 +131,16 @@ public class NewPersonActivity extends Activity implements View.OnClickListener 
         startActivity(intent);
     }
 
+    public void onClickBack(View view){
+        Intent intent = new Intent(this, PersonActivity.class);
+
+        EditText email =  findViewById(R.id.emailText);
+        String emailVal = email.getText().toString();
+
+        intent.putExtra("email",emailVal);
+        startActivity(intent);
+    }
+
     public void insertToTable(View view){
 
         BMIDatabaseHelper helper = new BMIDatabaseHelper(this);
@@ -138,7 +152,7 @@ public class NewPersonActivity extends Activity implements View.OnClickListener 
         String nameVal = name.getText().toString();
 
         EditText email =  findViewById(R.id.emailText);
-        String emailVal = email.getText().toString();
+        emailVal = email.getText().toString();
 
         EditText dob =  findViewById(R.id.birthDate);
         String dobVal = dob.getText().toString();
@@ -167,7 +181,10 @@ public class NewPersonActivity extends Activity implements View.OnClickListener 
 
         db.insert(BMIDatabaseHelper.TABLE_NAME,null, personValues);
 
-        System.out.println("Record inserted");
+        Toast.makeText(getApplicationContext(), "Data saved", Toast.LENGTH_LONG).show();
+
+
+        //System.out.println("Record inserted");
 
         //return true;
     }
