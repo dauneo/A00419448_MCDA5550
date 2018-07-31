@@ -65,13 +65,6 @@
             android:text="Calculate BMI" />
 
         <Button
-            android:id="@+id/adduser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClickNewUser"
-            android:text="New User" />
-
-        <Button
             android:id="@+id/viewusers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

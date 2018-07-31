@@ -73,6 +73,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        String userName = getIntent().getStringExtra("email");
+        EditText emailTxt = findViewById(R.id.email);
+        if(userName != null) {
+            emailTxt.setText(userName);
+        }
+
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -383,6 +390,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
             showProgress(false);
         }
+    }
+
+    public void onClickNewUser(View view) {
+        Intent intent = new Intent(this, NewPersonActivity.class);
+        startActivity(intent);
     }
 }
 

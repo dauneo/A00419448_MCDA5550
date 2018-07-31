@@ -19,7 +19,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Height"
+                android:hint="Height(m)"
                 android:inputType="numberDecimal" />
         </TableRow>
 
@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Weight"
+                android:hint="Weight(kg)"
                 android:inputType="numberDecimal" />
         </TableRow>
 

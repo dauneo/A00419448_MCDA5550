@@ -80,8 +80,12 @@ public class PersonActivity extends AppCompatActivity {
         EditText dob =  findViewById(R.id.emailText);
         String dobVal = dob.getText().toString();
 
+        EditText emailTxt =  findViewById(R.id.emailText);
+        String email = emailTxt.getText().toString();
+
         intent.putExtra("name",nameVal);
         intent.putExtra("dob",dobVal);
+        intent.putExtra("email",email);
 
         startActivity(intent);
     }

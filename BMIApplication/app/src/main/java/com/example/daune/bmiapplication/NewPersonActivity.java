@@ -184,9 +184,13 @@ public class NewPersonActivity extends AppCompatActivity implements View.OnClick
         Toast.makeText(getApplicationContext(), "Data saved", Toast.LENGTH_LONG).show();
 
 
-        //System.out.println("Record inserted");
+        Intent intent = new Intent(this, LoginActivity.class);
 
-        //return true;
+        //EditText email =  findViewById(R.id.emailText);
+        //String emailVal = email.getText().toString();
+
+        intent.putExtra("email",emailVal);
+        startActivity(intent);
     }
 
 }

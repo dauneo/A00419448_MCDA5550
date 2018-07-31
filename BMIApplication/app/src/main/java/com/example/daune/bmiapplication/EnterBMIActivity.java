@@ -18,6 +18,7 @@ public class EnterBMIActivity extends AppCompatActivity {
 
     String userName;
     String dob;
+    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class EnterBMIActivity extends AppCompatActivity {
 
         userName = getIntent().getStringExtra("name");
         dob = getIntent().getStringExtra("dob");
+        email = getIntent().getStringExtra("email");
     }
 
     public void calculate(View view){
@@ -53,11 +55,15 @@ public class EnterBMIActivity extends AppCompatActivity {
         if (loadBMI(userName,dob, heightVal, weightVal, calc)){
             Toast.makeText(getApplicationContext(), "Data saved", Toast.LENGTH_LONG).show();
 
-            height.setText("");
-            weight.setText("");
-            result.setText("");
+            Intent intent = new Intent(this, PersonActivity.class);
+
+            intent.putExtra("email",email);
+
+            startActivity(intent);
+
 
         }else {
+            Toast.makeText(getApplicationContext(), "Error Saving Data", Toast.LENGTH_LONG).show();
 
         }
 
